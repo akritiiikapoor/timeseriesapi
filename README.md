@@ -68,5 +68,7 @@ Based on the model's output, the predictions for the next time periods are as fo
 ## Conclusion
 
 The **TabTransformer** model is effective in predicting the number of API calls over short and long periods. These predictions can be utilized for API load balancing or scaling purposes, helping to manage infrastructure resources efficiently.
+
+
 ![image](https://github.com/user-attachments/assets/1593edfd-1df2-46ae-99ee-b080970ac082)
 
