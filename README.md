@@ -16,8 +16,7 @@ Before running the project, ensure you have the following dependencies installed
 - Matplotlib
 - PyWavelets
 - Keras
-
-  ## Dataset
+## Dataset
 
 The dataset used contains API usage data over time. The data should be in CSV format, containing at least:
 
@@ -34,19 +33,22 @@ The dataset is processed by converting the `Time of Call` column to datetime and
 - Resample the data to aggregate API usage on an hourly basis.
 - Normalize the data using MinMaxScaler for better model performance.
 
-### 2. Supervised Learning Dataset Creation:
-- Create a supervised learning dataset where each input is the past `n` hours of data, and the target is the next hour's API usage.
+### 2. Selecting Top 4 APIs:
+- From the dataset, the top 4 APIs with the highest usage over time are selected for further analysis.
 
-### 3. Model Training and Evaluation:
-Several deep learning models are built for predicting API usage:
+### 3. Supervised Learning Dataset Creation:
+- Create a supervised learning dataset where each input is the past `n` hours of data, and the target is the next hour's API usage for each of the top 4 APIs.
+
+### 4. Model Training and Evaluation:
+Several deep learning models are built for predicting API usage for each of the top 4 APIs:
 - **TabTransformer**: A model using transformer architecture, specifically designed for time series data.
 - The model is trained and evaluated using RMSE (Root Mean Squared Error) on the test set.
 
-### 4. Model Selection and Prediction:
+### 5. Model Selection and Prediction:
 - The model with the best performance (lowest RMSE) is selected.
 - The selected model is retrained on the entire dataset and used to make predictions for the next hour, day, week, and month.
 
-### 5. Prediction Output:
+### 6. Prediction Output:
 - The model predicts the number of API calls for the next hour, day, week, and month.
 - Predictions are transformed back to the original scale using inverse normalization.
 
